@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">  
+  <metadata>
+    <id>DotnetConfigOverride</id>
+    <version>1.0.0</version>
+    <title>Web.config Override</title>
+    <authors>Giancarlos Salas</authors>
+    <owners>giansalex</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Allow teams override Web.config</description>
+    <language>es-PE</language>
+    <tags>Asp AspNetMvc</tags>
+    <projectUrl>https://github.com/giansalex/DotnetConfigOverride/</projectUrl>
+  </metadata>
+</package>
