@@ -1,9 +1,26 @@
 # Web Override
-Allow teams override Web.config
+Allow teams to override Web.config
 
+Directory Tree (no include Web.Override.config in project)
 
-```txt
-|
-|- Web.config
-|- Web.Override.config 
+![Directory Tree](https://raw.githubusercontent.com/giansalex/DotnetConfigOverride/master/assets/tree.png)
+
+Add to `.gitignore`
+```
+Web.Override.config
+```
+
+## Example
+
+In this moment, only `appSettings` and `connectionStrings` are supported.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appSettings>
+    <add key="Team" value="ABC"/>
+  </appSettings>
+  <connectionStrings>
+    <add name="Default" connectionString="Data Source=.;Initial Catalog=DB_ABC;" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+</configuration>
 ```
