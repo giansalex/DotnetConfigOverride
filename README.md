@@ -1,4 +1,6 @@
 # Web Override
+[![Build status](https://ci.appveyor.com/api/projects/status/3pyfy8kt2dqeihwa?svg=true)](https://ci.appveyor.com/project/giansalex/dotnetconfigoverride)    
+
 Allow teams to override Web.config
 
 Directory Tree (no include Web.Override.config in project)
