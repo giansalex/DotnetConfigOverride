@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using System.Xml.Linq;
 
@@ -13,33 +10,35 @@ namespace DotnetConfig.Override
 {
     public static class WebConfig
     {
-        public static void Override(string suffix = "Override")
+        private const string PathOverride = "~/Web.Override.config";
+
+        public static void Override()
         {
             if (HttpContext.Current == null)
             {
                 return;
             }
 
-            var configOverride = HttpContext.Current.Server.MapPath($"~/Web.{suffix}.config");
+            var configOverride = HttpContext.Current.Server.MapPath(PathOverride);
             if (!File.Exists(configOverride))
             {
                 return;
             }
 
-            ReplaceConfig(configOverride);
+            Override(configOverride);
         }
 
-        private static void ReplaceConfig(string webConfig)
+        private static void Override(string pathOverride)
         {
-            var @override = XDocument.Parse(File.ReadAllText(webConfig));
+            var @override = XDocument.Parse(File.ReadAllText(pathOverride));
 
             // Load allowed override configs
             var settings = GetAppSettings(@override);
             var connections = GetConnectionString(@override);
 
             // Override configs if available.
-            if (settings.Count > 0) ReplaceSettings(settings);
-            if (connections.Count > 0) ReplaceConnections(connections);
+            ReplaceSettings(settings);
+            ReplaceConnections(connections);
         }
 
         private static void ReplaceSettings(Dictionary<string, string> values)
@@ -53,6 +52,8 @@ namespace DotnetConfig.Override
         private static void ReplaceConnections(Dictionary<string, string> values)
         {
             var field = typeof(ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+            if (field == null) return;
+
             foreach (var item in values)
             {
                 var connection = ConfigurationManager.ConnectionStrings[item.Key];
@@ -68,12 +69,12 @@ namespace DotnetConfig.Override
                 .Elements("configuration")
                 .Elements("appSettings")
                 .Elements("add")
-                .ToDictionary(s => s.Attribute("key").Value, s => s.Attribute("value").Value);
+                .ToDictionary(s => s.Attribute("key")?.Value, s => s.Attribute("value")?.Value);
 
         private static Dictionary<string, string> GetConnectionString(XDocument doc) => doc
                 .Elements("configuration")
                 .Elements("connectionStrings")
                 .Elements("add")
-                .ToDictionary(s => s.Attribute("name").Value, s => s.Attribute("connectionString").Value);
+                .ToDictionary(s => s.Attribute("name")?.Value, s => s.Attribute("connectionString")?.Value);
     }
 }
