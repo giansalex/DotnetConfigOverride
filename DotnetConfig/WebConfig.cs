@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Web;
 using System.Xml.Linq;
 
-namespace DotnetConfig.Override
+namespace DotnetConfig
 {
     public static class WebConfig
     {
