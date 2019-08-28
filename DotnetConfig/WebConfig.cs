@@ -28,7 +28,7 @@ namespace DotnetConfig
             Override(configOverride);
         }
 
-        private static void Override(string pathOverride)
+        public static void Override(string pathOverride)
         {
             var @override = XDocument.Parse(File.ReadAllText(pathOverride));
 
