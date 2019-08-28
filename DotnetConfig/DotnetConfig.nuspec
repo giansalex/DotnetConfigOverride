@@ -10,7 +10,17 @@
     <language>en-US</language>
     <tags>Asp AspNetMvc</tags>
     <projectUrl>https://github.com/giansalex/DotnetConfigOverride/</projectUrl>
+    <repository type="git" url="https://github.com/giansalex/DotnetConfigOverride.git" branch="master" commit="ccb572ee24412ca58124c8c00d850bae6cca49b8" />
     <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <packageTypes>
+      <packageType name="Dependency" />
+    </packageTypes>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Configuration" targetFramework="net45"/>
+      <frameworkAssembly assemblyName="System.Web" targetFramework="net45" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="net45" />
+      <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="net45" />
+    </frameworkAssemblies>
   </metadata>
 </package>
