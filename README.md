@@ -1,7 +1,19 @@
 # Config Override
-[![Build status](https://ci.appveyor.com/api/projects/status/3pyfy8kt2dqeihwa?svg=true)](https://ci.appveyor.com/project/giansalex/dotnetconfigoverride)    
+[![Build status](https://ci.appveyor.com/api/projects/status/3pyfy8kt2dqeihwa?svg=true)](https://ci.appveyor.com/project/giansalex/dotnetconfigoverride) ![Nuget](https://img.shields.io/nuget/v/DotnetConfigOverride?style=flat-square)    
 
 Allow teams to override Web.config
+
+## Install
+```
+Install-Package DotnetConfigOverride
+```
+
+## Usage
+In `Global.asax.cs`
+
+```csharp
+DotnetConfig.WebConfig.Override();
+```
 
 Directory Tree (no include Web.Override.config in project)
 
@@ -11,8 +23,6 @@ Add to `.gitignore`
 ```
 Web.Override.config
 ```
-
-## Example
 
 In this moment, only `appSettings` and `connectionStrings` are supported.
 ```xml
