@@ -1,5 +1,5 @@
 # Config Override
-[![Build status](https://ci.appveyor.com/api/projects/status/3pyfy8kt2dqeihwa?svg=true)](https://ci.appveyor.com/project/giansalex/dotnetconfigoverride) ![Nuget](https://img.shields.io/nuget/v/DotnetConfigOverride?style=flat-square)    
+[![Build status](https://ci.appveyor.com/api/projects/status/3pyfy8kt2dqeihwa?svg=true)](https://ci.appveyor.com/project/giansalex/dotnetconfigoverride) [![Nuget](https://img.shields.io/nuget/v/DotnetConfigOverride?style=flat-square)](https://www.nuget.org/packages/DotnetConfigOverride/)    
 
 Allow teams to override Web.config
 
