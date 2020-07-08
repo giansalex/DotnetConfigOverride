@@ -24,7 +24,7 @@ Add to `.gitignore`
 Web.Override.config
 ```
 
-In this moment, only `appSettings` and `connectionStrings` are supported.
+In this moment, `appSettings` and `connectionStrings` are supported.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
